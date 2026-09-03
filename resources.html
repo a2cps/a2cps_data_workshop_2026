@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resources · A2CPS Data Workshop 2026</title>
+<meta name="description" content="Resources for working with A2CPS data: NIMH Data Archive access, starter kits, documentation, videos, publications and how to cite.">
+<link rel="icon" href="assets/img/a2cps-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="index.html"><img src="assets/img/a2cps-logo.png" alt="A2CPS"><span>Data Workshop<small>September 29, 2026</small></span></a>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="study.html">The Study</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a class="ext" href="https://a2cps.org" target="_blank" rel="noopener">a2cps.org</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Resources</div>
+    <h1>Everything you need to start working with A2CPS data</h1>
+    <p class="lede">Data access through the NIMH Data Archive, tutorials and documentation from the Data Integration and Resource Center, recorded talks, and the published papers to cite.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="#nda">Get data access</a>
+      <a class="btn btn--ghost" href="#kits">Starter kits &amp; docs</a>
+      <a class="btn btn--ghost" href="#papers">Papers &amp; citation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NDA ============ -->
+<section id="nda">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div>
+        <div class="eyebrow">Data access</div>
+        <h2>NIMH Data Archive</h2>
+        <p>A2CPS data are maintained in the National Institute of Mental Health Data Archive (NDA). Any researcher can access them by completing a Data Access Request for the NDA permission group. In NDA, A2CPS is listed as “Data Center for Acute to Chronic Pain Biosignatures”, collection #5121.</p>
+        <div class="btn-row">
+          <a class="btn btn--ink" href="https://nda.nih.gov/study.html?id=3307" target="_blank" rel="noopener">A2CPS NDA study page (ID 3307) ↗</a>
+          <a class="btn btn--ghost" href="https://a2cps.org/researchers/accessing-our-data/" target="_blank" rel="noopener">Access guide on a2cps.org ↗</a>
+        </div>
+        <div class="callout" style="margin-top:22px">
+          <p><b>Start early.</b> Access requests must be reviewed and approved. Filing yours before the workshop means you can follow the hands-on segments with real data.</p>
+        </div>
+      </div>
+      <ol class="sched">
+        <li><time>1</time><span><span class="t">Log in or create an NDA account</span><br><span class="who">Sign in with any of the three NIH Researcher Auth Service (RAS) options, or create an account in NDA.</span></span><a class="chip" href="https://nda.nih.gov/" target="_blank" rel="noopener">nda.nih.gov ↗</a></li>
+        <li><time>2</time><span><span class="t">Open the Data Permissions Dashboard</span><br><span class="who">You must be signed in. Find the “NDA” permission group in the list.</span></span><a class="chip" href="https://nda.nih.gov/user/dashboard/data_permissions.html" target="_blank" rel="noopener">Dashboard ↗</a></li>
+        <li><time>3</time><span><span class="t">Request access</span><br><span class="who">In the Actions column for the NDA permission group, click “Request Access” to start the Data Access Request.</span></span><a class="chip chip--ember" href="https://a2cps.org/researchers/accessing-our-data/" target="_blank" rel="noopener">Details ↗</a></li>
+        <li><time>4</time><span><span class="t">Explore and download</span><br><span class="who">Browse the A2CPS study page, add data to a package, and download with NDA tools. Webinars and tutorials on nda.nih.gov walk through each step.</span></span><a class="chip chip--teal" href="https://nda.nih.gov/study.html?id=3307" target="_blank" rel="noopener">Study 3307 ↗</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section class="section--band" id="kits">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tools &amp; documentation</div>
+      <h2>Starter kits, docs and videos</h2>
+      <p>Built by the Data Integration and Resource Center at a2cps.github.io.</p>
+    </div>
+    <div class="cards reveal">
+      <a class="card card--featured" href="https://a2cps.github.io/starterkits/dev/" target="_blank" rel="noopener">
+        <span class="tag">Featured</span>
+        <div class="card__icon">🧰</div>
+        <h3>A2CPS Starter Kits</h3>
+        <p>Brief tutorials for each data modality, written for researchers who know one kind of data but not another. Each kit covers how to access the relevant files and shows simple analyses in R, Python and shell, from FreeSurfer tables to brain age versus true age.</p>
+        <span class="cta">a2cps.github.io/starterkits</span>
+      </a>
+      <a class="card" href="https://a2cps.github.io/docs/" target="_blank" rel="noopener">
+        <div class="card__icon" style="background:var(--sky-soft); color:var(--navy)">📚</div>
+        <h3>A2CPS Docs</h3>
+        <p>Documentation for A2CPS data, including imaging processing notes such as slice packets and skull-stripping.</p>
+        <span class="cta">a2cps.github.io/docs</span>
+      </a>
+      <a class="card" href="https://vimeo.com/a2cps" target="_blank" rel="noopener">
+        <div class="card__icon" style="background:var(--ember-soft); color:var(--ember-deep)">▶</div>
+        <h3>Video repository</h3>
+        <p>Recorded talks and tutorials from the consortium on Vimeo. The workshop recording will be added here after the session.</p>
+        <span class="cta">vimeo.com/a2cps</span>
+      </a>
+      <a class="card" href="https://a2cps.org/researchers/data-releases/about-the-data" target="_blank" rel="noopener">
+        <div class="card__icon" style="background:var(--gold-soft); color:#7a5300">🗂</div>
+        <h3>About the data</h3>
+        <p>Data dictionaries, the original case report forms, and the HEAL common data elements used to harmonize every questionnaire.</p>
+        <span class="cta">a2cps.org · About the Data</span>
+      </a>
+      <a class="card" href="https://a2cps.org/researchers/data-releases/" target="_blank" rel="noopener">
+        <div class="card__icon">📦</div>
+        <h3>Data releases</h3>
+        <p>Release timeline, versioning scheme, and release-specific documentation.</p>
+        <span class="cta">a2cps.org · Data Releases</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT THE STUDY ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">On a2cps.org</div>
+      <h2>Study background</h2>
+    </div>
+    <div class="cards reveal">
+      <a class="card" href="https://a2cps.org/" target="_blank" rel="noopener"><div class="card__icon">🏠</div><h3>a2cps.org</h3><p>The consortium home: news, directory, participant information and the researcher portal.</p><span class="cta">Visit</span></a>
+      <a class="card" href="https://a2cps.org/about/protocol/" target="_blank" rel="noopener"><div class="card__icon">📝</div><h3>Protocol</h3><p>How participants are recruited, followed and assessed from before surgery to 12 months after.</p><span class="cta">Read</span></a>
+      <a class="card" href="https://a2cps.org/researchers/a2cps-study-details/" target="_blank" rel="noopener"><div class="card__icon">🔬</div><h3>Study details &amp; internal projects</h3><p>Primary biomarker table and the list of ongoing consortium analysis projects by data type.</p><span class="cta">Browse</span></a>
+      <a class="card" href="https://a2cps.org/news/publications/" target="_blank" rel="noopener"><div class="card__icon" style="background:var(--ember-soft); color:var(--ember-deep)">📖</div><h3>Publications</h3><p>All papers from the consortium, including methods papers for each data modality.</p><span class="cta">Publications page</span></a>
+      <a class="card" href="https://a2cps.org/about/consortium" target="_blank" rel="noopener"><div class="card__icon" style="background:var(--sky-soft); color:var(--navy)">🤝</div><h3>Consortium</h3><p>Clinical centers, omics centers, coordinating centers and the people behind them.</p><span class="cta">Meet the consortium</span></a>
+      <a class="card" href="https://a2cps.org/contact/" target="_blank" rel="noopener"><div class="card__icon" style="background:var(--gold-soft); color:#7a5300">✉</div><h3>Contact</h3><p>Questions about access, collaboration or the workshop.</p><span class="cta">Get in touch</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAPERS & CITATION ============ -->
+<section class="section--band" id="papers">
+  <div class="wrap wrap--narrow">
+    <div class="eyebrow">Papers &amp; citation</div>
+    <h2>Reference papers and how to cite A2CPS</h2>
+    <p>Two papers describe the program and should be cited when referring to the A2CPS protocol and biomarkers.</p>
+    <div class="table-wrap" style="margin: 18px 0 26px">
+      <table>
+        <tr><td><b>Biomarker paper</b></td><td>Sluka KA, Wager TD, Sutherland SP, Labosky PA, Balach T, et al. <a href="https://journals.lww.com/pain/fulltext/2023/09000/predicting_chronic_postsurgical_pain__current.5.aspx" target="_blank" rel="noopener">Predicting chronic postsurgical pain: current evidence and a novel program to develop predictive biomarker signatures.</a> <i>PAIN</i>, 2023.</td></tr>
+        <tr><td><b>Protocol paper</b></td><td>Berardi G, Frey-Law L, Sluka KA, Bayman EO, Coffey CS, et al. <a href="https://www.frontiersin.org/articles/10.3389/fmed.2022.849214/full" target="_blank" rel="noopener">Multi-Site Observational Study to Assess Biomarkers for Susceptibility or Resilience to Chronic Pain: The Acute to Chronic Pain Signatures (A2CPS) Study Protocol.</a> <i>Frontiers in Medicine</i>, 2022.</td></tr>
+      </table>
+    </div>
+    <h3>Attribution statement</h3>
+    <p>Include the following in publications or presentations that use A2CPS data:</p>
+    <div class="cite">Data were provided [in part] by the A2CPS Consortium funded by the National Institutes of Health (NIH) Common Fund, which is managed by the Office of the Director (OD) / Office of Strategic Coordination (OSC). Consortium components and their associated funding sources include Clinical Coordinating Center (U24NS112873), Data Integration and Resource Center (U54DA049110), Omics Data Generation Centers (U54DA049116, U54DA049115, U54DA049113), Multi-site Clinical Center 1 (MCC1) (UM1NS112874), and Multi-site Clinical Center 2 (MCC2) (UM1NS118922).</div>
+    <p style="margin-top:16px; font-size:.92rem; color:var(--muted)">Full citation guidance: <a href="https://a2cps.org/researchers/accessing-our-data/" target="_blank" rel="noopener">Accessing our Data</a> on a2cps.org.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <div>
+      <img src="assets/img/a2cps-logo.png" alt="A2CPS">
+      <p>The Acute to Chronic Pain Signatures program is funded by the NIH Common Fund, managed by the Office of the Director / Office of Strategic Coordination. Data are shared through the NIMH Data Archive.</p>
+      <p><a href="https://a2cps.org" target="_blank" rel="noopener"><b>a2cps.org ↗</b></a></p>
+    </div>
+    <div>
+      <h4>This site</h4>
+      <ul><li><a href="index.html">Home</a></li><li><a href="schedule.html">Schedule</a></li><li><a href="study.html">The Study</a></li><li><a href="resources.html">Resources</a></li></ul>
+    </div>
+    <div>
+      <h4>Data &amp; tools</h4>
+      <ul>
+        <li><a href="https://nda.nih.gov/study.html?id=3307" target="_blank" rel="noopener">NDA study page</a></li>
+        <li><a href="https://a2cps.github.io/starterkits/dev/" target="_blank" rel="noopener">Starter kits</a></li>
+        <li><a href="https://a2cps.github.io/docs/" target="_blank" rel="noopener">A2CPS docs</a></li>
+        <li><a href="https://a2cps.org/news/publications/" target="_blank" rel="noopener">Publications</a></li>
+        <li><a href="https://vimeo.com/a2cps" target="_blank" rel="noopener">Videos on Vimeo</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

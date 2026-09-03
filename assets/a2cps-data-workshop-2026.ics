@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//A2CPS//Data Workshop 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:a2cps-data-workshop-2026-09-29@a2cps.org
+DTSTAMP:20260903T180000Z
+DTSTART;TZID=America/New_York:20260929T130000
+DTEND;TZID=America/New_York:20260929T143000
+SUMMARY:A2CPS Data Workshop: Exploring the A2CPS Multimodal Data Resource
+DESCRIPTION:Virtual workshop introducing the A2CPS study and cohort\, key baseline data\, and how to access and analyze the data (NDA\, starter kits\, LLM tools). Video link to be announced. https://a2cps.org
+LOCATION:Online (video link to be announced)
+URL:https://a2cps.org
+END:VEVENT
+END:VCALENDAR
