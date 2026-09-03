@@ -3,6 +3,9 @@
 Website for **Exploring the A2CPS Multimodal Data Resource**, a virtual workshop on the
 Acute to Chronic Pain Signatures (A2CPS) dataset. Tuesday, September 29, 2026, 1:00–2:30 pm ET.
 
+Find the live site at: 
+https://a2cps.github.io/a2cps_data_workshop_2026
+
 Static site, no build step. Serve the folder or enable GitHub Pages (Settings → Pages → deploy from `main`, root).
 
 | Page | File |
