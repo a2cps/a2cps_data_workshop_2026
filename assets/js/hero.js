@@ -178,21 +178,6 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* 2. Logo: hue shift + tilt                                           */
-  /* ------------------------------------------------------------------ */
-  var img = stage && stage.querySelector('.logo-stage__img');
-  if (stage && img) {
-    stage.addEventListener('pointermove', function (e) {
-      var sr = stage.getBoundingClientRect();
-      var nx = (e.clientX - sr.left) / sr.width - 0.5, ny = (e.clientY - sr.top) / sr.height - 0.5;
-      var hue = Math.round((nx + 0.5) * 300 + (ny + 0.5) * 60) % 360;
-      img.style.filter = 'hue-rotate(' + hue + 'deg) saturate(1.2) drop-shadow(0 10px 18px rgba(15,27,45,.2))';
-      img.style.transform = 'rotateY(' + (nx * 18).toFixed(1) + 'deg) rotateX(' + (-ny * 12).toFixed(1) + 'deg) scale(1.03)';
-    });
-    stage.addEventListener('pointerleave', function () { img.style.filter = ''; img.style.transform = ''; });
-  }
-
-  /* ------------------------------------------------------------------ */
   /* 3. Cover network: colour pulses flowing node to node                */
   /* ------------------------------------------------------------------ */
   var nodesData = window.A2CPS_NODES;
@@ -203,22 +188,29 @@
     var NW = 0, NH = 0;
     var nodes = nodesData.map(function (d) { return { fx: d[0], fy: d[1], fr: d[2], h: d[3], s: d[4], v: d[5], x: 0, y: 0, r: 0, t0: Infinity, hue: 0, parent: -1, nb: [] }; });
 
-    // neighbour graph: each node links to its nearest few nodes within reach
+    // neighbour graph, anisotropic: distances across the width count ~2.5x,
+    // so links (and therefore the flow) run mostly down the length of the graphic
+    var ASPECT = 914 / 805, XW = 2.5;
     (function buildGraph() {
-      var reach = 0.13, K = 4;
+      var reach = 0.2, K = 4;
       for (var i = 0; i < nodes.length; i++) {
         var a = nodes[i], cand = [];
         for (var j = 0; j < nodes.length; j++) {
           if (i === j) continue;
-          var b = nodes[j], dx = a.fx - b.fx, dy = (a.fy - b.fy) * (914 / 805), d = Math.sqrt(dx * dx + dy * dy);
+          var b = nodes[j], dx = (a.fx - b.fx) * XW, dy = (a.fy - b.fy) * ASPECT, d = Math.sqrt(dx * dx + dy * dy);
           if (d < reach) cand.push([d, j]);
         }
         cand.sort(function (p, q) { return p[0] - q[0]; });
         a.nb = cand.slice(0, K).map(function (c) { return c[1]; });
       }
-      // make symmetric so pulses can travel both ways
       nodes.forEach(function (a, i) { a.nb.forEach(function (j) { if (nodes[j].nb.indexOf(i) < 0) nodes[j].nb.push(i); }); });
     })();
+    // hop delay: quick along the length, slow across the width
+    function hopCost(i, j) {
+      var dx = Math.abs(nodes[i].fx - nodes[j].fx), dy = Math.abs(nodes[i].fy - nodes[j].fy) * ASPECT;
+      var across = dx / (dx + dy + 1e-6);
+      return 70 + 160 * across;
+    }
 
     function nresize() {
       var r = netImg.getBoundingClientRect();
@@ -237,16 +229,21 @@
       return m ? m[1] + ',' + m[2] + ',' + m[3] : '243,245,248';
     })();
     function pulse(src, now, hueShift) {
-      // breadth-first: nodes further along the graph light up later
-      var STEP = 95, MAXD = 9;
-      var depth = {}; depth[src] = 0; var q = [src];
-      while (q.length) {
-        var i = q.shift(), d = depth[i];
-        var n = nodes[i], t = now + d * STEP;
-        if (t < n.t0 || now - n.t0 > 1400) { n.t0 = t; n.hue = (n.h + hueShift + d * 12) % 360; n.parent = -1; }
-        if (d >= MAXD) continue;
+      // Dijkstra over hop delays: nodes further down the network light up later
+      var MAXT = 1100, dist = {}, prev = {}, done = {}, open = [src];
+      dist[src] = 0;
+      while (open.length) {
+        var bi = 0;
+        for (var k = 1; k < open.length; k++) if (dist[open[k]] < dist[open[bi]]) bi = k;
+        var i = open.splice(bi, 1)[0];
+        if (done[i]) continue;
+        done[i] = true;
+        var n = nodes[i], t = now + dist[i];
+        if (t < n.t0 || now - n.t0 > 1400) { n.t0 = t; n.hue = (n.h + hueShift + dist[i] / 12) % 360; n.parent = prev[i] === undefined ? -1 : prev[i]; }
         n.nb.forEach(function (j) {
-          if (depth[j] === undefined) { depth[j] = d + 1; q.push(j); if (nodes[j].parent < 0 || nodes[j].t0 > t) nodes[j].parent = i; }
+          var nd = dist[i] + hopCost(i, j);
+          if (nd > MAXT) return;
+          if (dist[j] === undefined || nd < dist[j]) { dist[j] = nd; prev[j] = i; open.push(j); }
         });
       }
       if (!nraf) nraf = requestAnimationFrame(nframe);
